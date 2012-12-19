@@ -1,26 +1,29 @@
+using InterfaceSegregationPrinciple.Example.Views;
 using InterfaceSegregationPrinciple.Example.Views.Implementations;
 
 namespace InterfaceSegregationPrinciple.Example.Transactions.Implementations
 {
-	public class WithdrawalTransaction : Transaction
+	public class WithdrawalTransaction : ITransaction
 	{
 		private readonly Account account;
+	    private readonly ICashMachine _cashMachine;
 
-		public WithdrawalTransaction(Account account)
+	    public WithdrawalTransaction(Account account, ICashMachine cashMachine)
 		{
-			this.account = account;
+		    this.account = account;
+		    _cashMachine = cashMachine;
 		}
 
-		public override void Execute()
+	    public virtual void Execute()
 		{
-			var screen = new Screen();
 
-			decimal withdrawalAmount = screen.RequestWithdrawalAmount();
+			decimal withdrawalAmount = _cashMachine.RequestWithdrawalAmount();
 
-			if (account.Balance - withdrawalAmount < 0)
-				screen.InformInsufficientFunds();
-			else
-				account.Balance -= withdrawalAmount;
+	        if (account.HasSufficientFundsForWithdrawal(withdrawalAmount))
+	            account.Balance -= withdrawalAmount;
+	        else
+	            _cashMachine.InformInsufficientFunds();
+
 		}
 	}
 }

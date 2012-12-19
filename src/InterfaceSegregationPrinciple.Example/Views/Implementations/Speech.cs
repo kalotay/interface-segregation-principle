@@ -2,7 +2,7 @@ using System;
 
 namespace InterfaceSegregationPrinciple.Example.Views.Implementations
 {
-	public class Speech : IAutomatedTellerMachine
+	public class Speech : ITransferMachine
 	{
 		#region IAutomatedTellerMachine Members
 

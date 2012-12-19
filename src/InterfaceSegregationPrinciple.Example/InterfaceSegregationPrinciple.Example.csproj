@@ -43,12 +43,15 @@
     <Compile Include="Transactions\Implementations\DepositTransaction.cs" />
     <Compile Include="Transactions\Implementations\TransferTransaction.cs" />
     <Compile Include="Transactions\Implementations\WithdrawalTransaction.cs" />
-    <Compile Include="Transactions\Transaction.cs" />
-    <Compile Include="Views\IAutomatedTellerMachine.cs" />
+    <Compile Include="Transactions\ITransaction.cs" />
+    <Compile Include="Views\ICashMachine.cs" />
+    <Compile Include="Views\IInsufficientFundsInformer.cs" />
+    <Compile Include="Views\ITransferMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Implementations\Braille.cs" />
     <Compile Include="Views\Implementations\Screen.cs" />
     <Compile Include="Views\Implementations\Speech.cs" />
+    <Compile Include="Views\IDepositMachine.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

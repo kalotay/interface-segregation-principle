@@ -2,7 +2,7 @@ using System;
 
 namespace InterfaceSegregationPrinciple.Example.Views.Implementations
 {
-	public class Braille : IAutomatedTellerMachine
+	public class Braille : ITransferMachine
 	{
 		#region IAutomatedTellerMachine Members
 

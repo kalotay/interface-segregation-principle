@@ -2,7 +2,7 @@ using System;
 
 namespace InterfaceSegregationPrinciple.Example.Views.Implementations
 {
-	public class Screen : IAutomatedTellerMachine
+	public class Screen : ITransferMachine, IDepositMachine, ICashMachine
 	{
 		#region IAutomatedTellerMachine Members
 
