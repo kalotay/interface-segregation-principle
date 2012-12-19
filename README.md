@@ -1,0 +1,2 @@
+interface-segregation-principle
+===============================
